@@ -1,5 +1,5 @@
 {
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "Use this to cencel multiple/nested axios rest operations at once, by using the returned axios instance's rest operations (get, post, etc) and instance.cancel functions",
   "types": "lib/index.d.ts",
   "main": "lib/index.js",
@@ -52,7 +52,6 @@
     "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-prettier": "^3.1.2",
     "husky": "^4.0.1",
-    "jest": "^24.9.0",
     "lint-staged": "^9.5.0",
     "npm-run-all-v2": "^1.0.0",
     "prettier": "^1.19.1",
