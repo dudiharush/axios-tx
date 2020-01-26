@@ -1,20 +1,24 @@
-import axios, { AxiosRequestConfig, AxiosStatic } from 'axios'
-const CancelToken = axios.CancelToken
+import axios, { AxiosRequestConfig, AxiosStatic, Canceler } from 'axios'
 
 export interface AxiosStaticTx extends AxiosStatic {
   cancel(message?: string): void
 }
 
 export function axiosTx(config?: AxiosRequestConfig): AxiosStaticTx {
-  let source = CancelToken.source()
+  let cancel: Canceler
+  const cancelToken = new axios.CancelToken(c => {
+    cancel = c
+  })
   const instance = axios.create({
     ...config,
-    cancelToken: source.token,
+    cancelToken,
   }) as AxiosStaticTx
 
   instance.cancel = (message?: string) => {
-    source.cancel(message)
-    source = CancelToken.source()
+    cancel(message)
+    instance.defaults.cancelToken = new axios.CancelToken(c => {
+      cancel = c
+    })
   }
 
   return instance
