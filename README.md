@@ -1,6 +1,6 @@
 # axios-tx (works in node & web)
 
-Use this to abort multiple/nested axios rest operations at once, by using the returned axios instance and axios.cancel functions
+Use this to cancel multiple/nested axios rest operations at once, by using the axiosTx factory function, that returnes an axios instance what has a cancel function, which cancels all pending promises that originate from it
 
 # installation
 
