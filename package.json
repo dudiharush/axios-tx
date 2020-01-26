@@ -1,6 +1,6 @@
 {
   "name": "axios-tx",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Use this to cancel multiple/nested axios rest operations at once, by using the returned axios instance's REST API (get, post, etc) and instance.cancel function",
   "types": "lib/index.d.ts",
   "main": "lib/index.js",
