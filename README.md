@@ -13,9 +13,8 @@ import { axiosTx } from 'axios-tx';
 
 const axiosConfig = {}; // optional
 const txInstance = axiosTx(axiosConfig);
-const urls = ['url1', 'url2', 'url3'];
-const promiseArray = urls.map(async url => await txInstance.get(url));
-const resArray = await Promise.all(promiseArray);
-
-txInstance.cancel(); // cancel all txInstance's pending rest operations.
+txInstance.get("someUrl1").then(console.log).catch(console.error); // will log an error
+txInstance.get("someUrl2").then(console.log).catch(console.error); // will log an error
+txInstance.cancel(); // cancels only previously pending promises
+txInstance.get("someUrl3").then(console.log).catch(console.error); // will log results
 ```
